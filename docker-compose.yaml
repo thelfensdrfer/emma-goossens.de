@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5
+    restart: unless-stopped
+    user: $UID:$GID
+    volumes:
+      - ./docker/redis:/data:Z
+  app:
+    build: src/
+    restart: unless-stopped
+    user: $UID:$GID
+    depends_on:
+      - redis
+    links:
+      - redis
+    volumes:
+      - ./src:/app:Z
+  nginx:
+    image: nginx:1.17-alpine
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    depends_on:
+      - app
+    links:
+      - app
+    volumes:
+      -  ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./src:/app:ro
+  composer:
+    image: composer:1.10
+    restart: "no"
+    user: $UID:$GID
+    command: composer install --ignore-platform-reqs --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader --no-dev
+    volumes:
+      - ./src:/app:Z

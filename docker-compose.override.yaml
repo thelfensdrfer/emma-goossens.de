@@ -1,0 +1,5 @@
+version: '3'
+
+services:
+  composer:
+    command: composer install --ignore-platform-reqs --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader
