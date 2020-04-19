@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install \
     libmagickwand-dev \
     libcurl4-openssl-dev pkg-config libssl-dev -y
 RUN docker-php-ext-install -j$(nproc) zip curl gd exif
-RUN pecl install imagick
-RUN docker-php-ext-enable imagick
+RUN pecl install imagick redis
+RUN docker-php-ext-enable imagick redis
 
 RUN mkdir -p /app
 

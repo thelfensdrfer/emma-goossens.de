@@ -3,3 +3,54 @@
 @tailwind components;
 
 @tailwind utilities;
+
+body {
+    @apply text-lg;
+}
+
+body.night {
+    @apply text-white;
+
+    background: #000005;
+}
+
+.bg-emma {
+    @apply bg-pink-100;
+
+    background: linear-gradient(135deg, rgba(254,215,226,1) 0%, rgba(251,182,206,1) 100%);
+}
+
+hr {
+    @apply border-black;
+}
+
+input[type="text"],
+input[type="password"] {
+    @apply py-1 px-2 border-b border-gray-700;
+
+    transition: border-bottom-color .2s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    @apply text-gray-700;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    @apply border-black;
+
+    transition: border-bottom-color .2s ease;
+}
+
+button[type="submit"] {
+    @apply p-2 border border-black font-bold;
+
+    transition: all .2s ease;
+}
+
+button[type="submit"]:hover {
+    @apply bg-black text-white;
+
+    transition: all .2s ease;
+}

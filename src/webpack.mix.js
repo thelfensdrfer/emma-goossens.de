@@ -1,5 +1,8 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss')
+require('laravel-mix-purgecss');
+
+const production = (process.env.NODE_ENV || 'development') === 'production';
 
 /*
  |--------------------------------------------------------------------------
@@ -15,4 +18,13 @@ const tailwindcss = require('tailwindcss')
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/main.css', 'public/css', [
         tailwindcss('./resources/js/tailwind.js'),
-    ]);
+    ])
+    .purgeCss({
+        enabled: production,
+        extensions: [
+            'blade.php',
+            'php',
+            'js',
+            'vue'
+        ]
+    });
