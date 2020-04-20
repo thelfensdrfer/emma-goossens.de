@@ -1,3 +1,6 @@
+@import "~@fortawesome/fontawesome-pro/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-pro/css/solid.css";
+
 @tailwind base;
 
 @tailwind components;
@@ -6,12 +9,16 @@
 
 body {
     @apply text-lg;
+
+    transition: color .5s ease, background-color .5s ease;
 }
 
 body.night {
     @apply text-white;
 
     background: #000005;
+
+    transition: color .5s ease, background-color .5s ease;
 }
 
 .bg-emma {
@@ -53,4 +60,8 @@ button[type="submit"]:hover {
     @apply bg-black text-white;
 
     transition: all .2s ease;
+}
+
+#particles-js {
+    @apply fixed z-0 inset-0 z-0;
 }

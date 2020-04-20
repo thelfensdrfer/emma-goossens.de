@@ -26,7 +26,7 @@ class GoogleDrive
 
         $additionalFields = implode(',', [
             'thumbnailLink',
-            'webViewLink',
+            'webContentLink',
             'imageMediaMetadata',
         ]);
 
@@ -106,7 +106,7 @@ class GoogleDrive
                         'size' => $file['size'] ?? null,
                         'size_human' => isset($file['size']) ? self::humanFilesize($file['size'], 0) : null,
                         'thumbnailLink' => isset($file['thumbnailLink']) ? Str::replaceLast('s220', 's500', $file['thumbnailLink']) : null,
-                        'downloadLink' => $file['webViewLink'] ?? null,
+                        'downloadLink' => isset($file['webContentLink']) ? Str::replaceLast('&export=download', '', $file['webContentLink']) : null,
                         'ratio' => $ratio,
                         'width' => $width,
                         'height' => $height,

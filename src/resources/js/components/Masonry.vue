@@ -5,8 +5,8 @@
         </div>
 
         <div class="grid-sizer"></div>
-        <div class="grid-item" v-for="file in files" :key="file.id" :class="{ 'grid-item--width2': file.ratio && (file.ratio > 1.5 )}" :data-ratio="file.ratio" :data-thumbnail-width="file.width" :data-thumbnail-height="file.height">
-            <a :href="file.downloadLink">
+        <div class="grid-item" v-for="file in files" :key="file.id" :class="{ 'grid-item--width2': file.ratio && (file.ratio > 1.5 ), 'hidden': loading }" :data-ratio="file.ratio" :data-thumbnail-width="file.width" :data-thumbnail-height="file.height">
+            <a @click="openFile(file)">
                 <img class="w-full h-auto" :src="file.thumbnailLink" :alt="file.name">
             </a>
         </div>
@@ -90,6 +90,11 @@
 
                 that.loading = false;
             });
+        },
+        methods: {
+            openFile (file) {
+                console.debug('Open file', file)
+            }
         }
     }
 </script>

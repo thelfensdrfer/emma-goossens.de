@@ -10,13 +10,19 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <script src="{{ asset('js/app.js') }}" defer async></script>
     </head>
-    <body class="bg-white text-black min-h-full p-8 night">
-        <div id="app" class="mx-auto max-w-screen-lg">
-            <h1 class="text-center text-6xl font-bold my-16 md:my-32 lg:my-48">Emma Gooßens</h1>
+    <body class="bg-white text-black min-h-full p-8 @night night @endnight">
+        <div id="app">
+            <night-mode></night-mode>
 
-            <masonry :files='{{ json_encode($files) }}'></masonry>
+            <div class="mx-auto max-w-screen-lg relative z-10">
+                <h1 class="text-center text-6xl font-bold my-16 md:my-32 lg:my-48">Emma Gooßens</h1>
+
+                <masonry :files='{{ json_encode($files) }}'></masonry>
+            </div>
         </div>
 
-        <div id="particles-js" class="fixed inset-0 z-0"></div>
+        @night
+            <div id="particles-js"></div>
+        @endnight
     </body>
 </html>
