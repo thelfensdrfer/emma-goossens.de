@@ -34,6 +34,14 @@ Route::get('/anmelden', function (Request $request) {
     return view('login');
 });
 
+Route::get('/abmelden', function (Request $request) {
+    $cookie = cookie('authenticated', false, 60 * 24);
+
+    return response()
+        ->redirectTo('/')
+        ->withCookies([$cookie]);
+});
+
 Route::post('/anmelden', function (Request $request) {
     $password = $request->get('password', null);
 

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
         <title>{{ config('app.name') }}</title>
 
@@ -17,6 +17,12 @@
                 <h1 class="text-center text-6xl font-bold my-16 md:my-32 lg:my-48">Emma Gooßens</h1>
 
                 <masonry :files='{{ json_encode($files) }}'></masonry>
+
+                <div class="mt-16 text-right">
+                    <a href="{{ url('/abmelden') }}">
+                        <i class="fas fa-sign-out fa-2x" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </div>
 

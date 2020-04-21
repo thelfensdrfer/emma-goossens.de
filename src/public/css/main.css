@@ -23404,6 +23404,13 @@ body.night {
 .bg-emma {
   background-color: #fff5f7;
   background: linear-gradient(135deg, rgba(254,215,226,1) 0%, rgba(251,182,206,1) 100%);
+  max-height: 8rem;
+}
+
+@media (min-width: 1024px) {
+  .bg-emma {
+    max-height: none;
+  }
 }
 
 hr {
