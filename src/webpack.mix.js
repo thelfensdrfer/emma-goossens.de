@@ -20,11 +20,5 @@ mix.js('resources/js/app.js', 'public/js')
         tailwindcss('./resources/js/tailwind.js'),
     ])
     .purgeCss({
-        enabled: production,
-        extensions: [
-            'blade.php',
-            'php',
-            'js',
-            'vue'
-        ]
+        enabled: production
     });
