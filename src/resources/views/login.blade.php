@@ -8,12 +8,18 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-        <script src="{{ asset('js/app.js') }}" defer async></script>
     </head>
     <body class="bg-white text-black min-h-full">
         <div class="flex flex-col-reverse lg:flex-row h-screen">
-            <div class="w-full lg:w-1/2 px-8 mb-16 lg:mb-0 flex flex-col justify-center text-center">
-                <h1 class="text-6xl font-bold">Emma<br>Gooßens</h1>
+            <div class="w-full lg:w-1/2 px-8 mb-16 lg:mb-0 mt-4 lg:mt-0 flex flex-col justify-center text-center flex-grow lg:flex-grow-0">
+                <h1 class="text-4xl lg:text-6xl font-bold">
+                    <span class="hidden lg:inline-block">
+                        Emma<br>Gooßens
+                    </span>
+                    <span class="inline lg:hidden">
+                        Emma Gooßens
+                    </span>
+                </h1>
 
                 <hr class="block w-1/2 mx-auto my-8">
 
@@ -24,7 +30,7 @@
                         <div class="bg-red-100 text-red-900 border-l-4 border-red-900 p-2 mb-8 font-bold">{{ $message }}</div>
                     @enderror
 
-                    <label for="password" class="inline-block mr-4">Passwort:</label>
+                    <label for="password" class="inline-block mr-4 mb-2">Passwort:</label>
 
                     <input type="password" name="password" id="password" placeholder="******">
 
@@ -32,7 +38,9 @@
                 </form>
             </div>
 
-            <div class="w-full lg:w-1/2 px-8 h-full bg-emma"></div>
+            <div class="w-full lg:w-1/2 px-8 h-full flex-shrink lg:flex-shrink-0 bg-emma"></div>
         </div>
+
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

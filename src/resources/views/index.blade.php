@@ -8,7 +8,6 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-        <script src="{{ asset('js/app.js') }}" defer async></script>
     </head>
     <body class="bg-white text-black min-h-full p-8 @night night @endnight">
         <div id="app">
@@ -24,5 +23,7 @@
         @night
             <div id="particles-js"></div>
         @endnight
+
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
