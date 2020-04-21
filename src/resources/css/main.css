@@ -28,7 +28,7 @@ body.night {
 }
 
 hr {
-    @apply border-black;
+    @apply border-pink-300;
 }
 
 input[type="text"],

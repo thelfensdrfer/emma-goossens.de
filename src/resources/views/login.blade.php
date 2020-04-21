@@ -11,7 +11,7 @@
     </head>
     <body class="bg-white text-black min-h-full">
         <div class="flex flex-col-reverse lg:flex-row h-screen">
-            <div class="w-full lg:w-1/2 px-8 mb-16 lg:mb-0 mt-4 lg:mt-0 flex flex-col justify-center text-center flex-grow lg:flex-grow-0">
+            <div class="w-full lg:w-1/2 px-8 mb-16 lg:mb-0 mt-12 lg:mt-0 flex flex-col justify-center text-center flex-grow lg:flex-grow-0">
                 <h1 class="text-4xl lg:text-6xl font-bold">
                     <span class="hidden lg:inline-block">
                         Emma<br>Gooßens
@@ -30,9 +30,9 @@
                         <div class="bg-red-100 text-red-900 border-l-4 border-red-900 p-2 mb-8 font-bold">{{ $message }}</div>
                     @enderror
 
-                    <label for="password" class="inline-block mr-4 mb-2">Passwort:</label>
+                    <label for="password" class="block mb-2">Passwort:</label>
 
-                    <input type="password" name="password" id="password" placeholder="******">
+                    <input type="password" name="password" id="password" class="block w-full text-center" placeholder="******">
 
                     <button type="submit" class="block w-full mt-8">Anmelden</button>
                 </form>
