@@ -24,7 +24,6 @@ use GuzzleHttp\Psr7\Response;
 
 use App\Exceptions\UnknownFileException;
 use App\Exceptions\UnknownMimeTypeException;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class GoogleDrive
 {
@@ -162,9 +161,10 @@ class GoogleDrive
 
     /**
      * @param string $id
+     * @param bool $simulate
      * @return string
      */
-    protected function download(string $id): string
+    protected function download(string $id, bool $simulate): ?string
     {
         Log::debug(sprintf('Downloading %s', $id));
 
@@ -175,7 +175,11 @@ class GoogleDrive
             'alt' => 'media',
         ]);
 
-        return $response->getBody();
+        if (!$simulate) {
+            return $response->getBody();
+        }
+
+        return null;
     }
 
     /**
@@ -192,7 +196,7 @@ class GoogleDrive
             return;
         }
 
-        $imageContents = $this->download($id);
+        $imageContents = $this->download($id, $simulate);
 
         Log::debug('Converting image');
 
@@ -223,14 +227,9 @@ class GoogleDrive
             return;
         }
 
-        $videoContents = $this->download($id);
+        $videoContents = $this->download($id, $simulate);
 
-        $ffmpeg = FFMpeg::create([
-            'timeout' => 600,
-        ]);
-        $video = $ffmpeg->open($path);
-
-        Log::debug('Converting video');
+        $video = null;
 
         if (!$simulate) {
             // Save raw file
@@ -238,6 +237,15 @@ class GoogleDrive
                 file_put_contents($path, $videoContents);
             }
 
+            $ffmpeg = FFMpeg::create([
+                'timeout' => 600,
+            ]);
+            $video = $ffmpeg->open($path);
+        }
+
+        Log::debug('Converting video');
+
+        if (!$simulate) {
             // Save thumbnail
             if (!file_exists($path . '-thumbnail') || $force) {
                 $video
