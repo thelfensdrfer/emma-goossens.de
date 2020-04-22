@@ -238,7 +238,7 @@ class GoogleDrive
             }
 
             $ffmpeg = FFMpeg::create([
-                'timeout' => 600,
+                'timeout' => config('services.ffmpeg.timeout'),
             ]);
             $video = $ffmpeg->open($path);
         }

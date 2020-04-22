@@ -32,4 +32,8 @@ return [
         'media_sync' => env('PING_MEDIA_SYNC'),
     ],
 
+    'ffmpeg' => [
+        'timeout' => env('FFMPEG_TIMEOUT', 300)
+    ],
+
 ];
