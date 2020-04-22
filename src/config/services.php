@@ -28,4 +28,8 @@ return [
         'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
     ],
 
+    'ping' => [
+        'media_sync' => env('PING_MEDIA_SYNC'),
+    ],
+
 ];

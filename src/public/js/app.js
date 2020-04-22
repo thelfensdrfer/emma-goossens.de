@@ -161,6 +161,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -173,11 +204,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: true,
-      masonry: null
+      masonry: null,
+      modalVisible: false,
+      currentFile: null
     };
   },
   mounted: function mounted() {
-    console.debug('Masonry mounted.');
+    console.debug('Mounted masonry.');
     var that = this;
     imagesloaded__WEBPACK_IMPORTED_MODULE_1___default()(this.$el, function () {
       that.masonry = new masonry_layout__WEBPACK_IMPORTED_MODULE_0___default.a(that.$el, {
@@ -189,7 +222,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     openFile: function openFile(file) {
-      console.debug('Open file', file);
+      console.debug('Open preview modal', file.id);
+      this.modalVisible = true;
+      this.currentFile = file;
+    },
+    closeModal: function closeModal() {
+      console.debug('Close preview modal');
+      this.modalVisible = false;
+      this.currentFile = null;
     }
   }
 });
@@ -256,7 +296,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".grid-sizer[data-v-134f05ac] {\n  width: 100%;\n}\n.grid-item[data-v-134f05ac] {\n  display: block;\n  float: left;\n  width: 100%;\n  padding-left: 1rem;\n  padding-right: 1rem;\n  margin-bottom: 2rem;\n  overflow: hidden;\n}\n.grid-item--width2[data-v-134f05ac] {\n  width: 100%;\n}\n@media (min-width: 640px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 50%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 100%;\n}\n}\n@media (min-width: 768px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 33.333333%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 66.666667%;\n}\n}\n@media (min-width: 1024px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 25%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 50%;\n}\n}\n", ""]);
+exports.push([module.i, "#file-preview-modal[data-v-134f05ac] {\n  background-color: rgba(255, 255, 255, .8);\n}\n.grid-sizer[data-v-134f05ac] {\n  width: 100%;\n}\n.grid-item[data-v-134f05ac] {\n  display: block;\n  float: left;\n  width: 100%;\n  padding-left: 1rem;\n  padding-right: 1rem;\n  margin-bottom: 2rem;\n  overflow: hidden;\n  transition: opacity .2s ease;\n}\n.grid-item--width2[data-v-134f05ac] {\n  width: 100%;\n}\n@media (min-width: 640px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 50%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 100%;\n}\n}\n@media (min-width: 768px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 33.333333%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 66.666667%;\n}\n}\n@media (min-width: 1024px) {\n.grid-sizer[data-v-134f05ac],\n    .grid-item[data-v-134f05ac] {\n    width: 25%;\n}\n.grid-item--width2[data-v-134f05ac] {\n    width: 50%;\n}\n}\n", ""]);
 
 // exports
 
@@ -5676,6 +5716,111 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "inset-0 flex flex-col justify-center z-30",
+          class: { hidden: !_vm.modalVisible, fixed: _vm.modalVisible },
+          attrs: { id: "file-preview-modal" }
+        },
+        [
+          _c("div", { staticClass: "absolute top-0 right-0" }, [
+            _c(
+              "a",
+              {
+                staticClass: "block cursor-pointer p-4 m-4",
+                on: {
+                  click: function($event) {
+                    return _vm.closeModal()
+                  }
+                }
+              },
+              [
+                _c("i", {
+                  staticClass: "fas fa-times fa-2x",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "w-full h-full p-4 lg:p-16",
+              on: {
+                click: function($event) {
+                  return _vm.closeModal()
+                }
+              }
+            },
+            [
+              _vm.currentFile &&
+              _vm.currentFile["mimetype"] &&
+              _vm.currentFile["mimetype"].startsWith("image/")
+                ? [
+                    _c("div", {
+                      staticClass:
+                        "w-full h-full bg-contain bg-no-repeat bg-center",
+                      staticStyle: { "background-origin": "content-box" },
+                      style: {
+                        "background-image":
+                          "url(/preview/" + _vm.currentFile["id"] + ")"
+                      }
+                    })
+                  ]
+                : _vm.currentFile &&
+                  _vm.currentFile["mimetype"] &&
+                  _vm.currentFile["mimetype"].startsWith("video/")
+                ? [
+                    _c(
+                      "video",
+                      {
+                        staticClass: "w-auto h-full mx-auto",
+                        attrs: {
+                          id: "video-player",
+                          controls: "",
+                          autoplay: "",
+                          preload: "auto"
+                        }
+                      },
+                      [
+                        _c("source", {
+                          attrs: {
+                            src: "/preview/" + _vm.currentFile["id"] + ".webm",
+                            type: "video/webm"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("source", {
+                          attrs: {
+                            src: "/preview/" + _vm.currentFile["id"] + ".mp4",
+                            type: "video/mp4"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("source", {
+                          attrs: {
+                            src: "/preview/" + _vm.currentFile["id"],
+                            type: _vm.currentFile["mimetype"]
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                : [
+                    _c(
+                      "p",
+                      { staticClass: "p-4 bg-red-200 text-red-900 font-bold" },
+                      [_vm._v("Unbekanntes Dateiformat!")]
+                    )
+                  ]
+            ],
+            2
+          )
+        ]
+      ),
+      _vm._v(" "),
       _c("div", { staticClass: "grid-sizer" }),
       _vm._v(" "),
       _vm._l(_vm.files, function(file) {
@@ -5686,18 +5831,14 @@ var render = function() {
             staticClass: "grid-item",
             class: {
               "grid-item--width2": file.ratio && file.ratio > 1.5,
-              hidden: _vm.loading
-            },
-            attrs: {
-              "data-ratio": file.ratio,
-              "data-thumbnail-width": file.width,
-              "data-thumbnail-height": file.height
+              "opacity-0": _vm.loading
             }
           },
           [
             _c(
               "a",
               {
+                staticClass: "cursor-pointer",
                 on: {
                   click: function($event) {
                     return _vm.openFile(file)
@@ -5707,7 +5848,15 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "w-full h-auto",
-                  attrs: { src: file.thumbnailLink, alt: file.name }
+                  attrs: {
+                    src:
+                      "/preview/" +
+                      file["id"] +
+                      (file["mimetype"].startsWith("video/")
+                        ? "-thumbnail"
+                        : ""),
+                    alt: file.name
+                  }
                 })
               ]
             )
@@ -5740,7 +5889,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "fixed top-0 right-0 m-4 mt-8 z-40" }, [
+  return _c("div", { staticClass: "fixed top-0 left-0 m-4 mt-8 z-20" }, [
     _c("a", { staticClass: "cursor-pointer p-4", on: { click: _vm.toggle } }, [
       _c("i", {
         staticClass: "fas fa-moon-stars fa-2x",

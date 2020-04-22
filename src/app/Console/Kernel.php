@@ -24,7 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('media:sync')
+            ->everyTenMinutes()
+            ->withoutOverlapping()
+            ->thenPing(config('services.ping.media_sync'));
     }
 
     /**

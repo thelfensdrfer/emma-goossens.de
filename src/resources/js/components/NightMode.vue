@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed top-0 right-0 m-4 mt-8 z-40">
+    <div class="fixed top-0 left-0 m-4 mt-8 z-20">
         <a class="cursor-pointer p-4" @click="toggle">
             <i class="fas fa-moon-stars fa-2x" aria-hidden="true"></i>
         </a>

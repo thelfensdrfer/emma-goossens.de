@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +24,14 @@ Route::group(['middleware' => 'auth.global'], function () {
             'files' => (new GoogleDrive())->list(),
         ]);
     });
+
+    Route::get('/abmelden', function () {
+        $cookie = cookie('authenticated', false, 60 * 24);
+
+        return response()
+            ->redirectTo('/')
+            ->withCookies([$cookie]);
+    });
 });
 
 Route::get('/anmelden', function (Request $request) {
@@ -32,14 +40,6 @@ Route::get('/anmelden', function (Request $request) {
     }
 
     return view('login');
-});
-
-Route::get('/abmelden', function (Request $request) {
-    $cookie = cookie('authenticated', false, 60 * 24);
-
-    return response()
-        ->redirectTo('/')
-        ->withCookies([$cookie]);
 });
 
 Route::post('/anmelden', function (Request $request) {

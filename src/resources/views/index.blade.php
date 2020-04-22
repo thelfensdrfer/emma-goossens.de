@@ -19,7 +19,7 @@
                 <masonry :files='{{ json_encode($files) }}'></masonry>
 
                 <div class="mt-16 text-right">
-                    <a href="{{ url('/abmelden') }}">
+                    <a href="{{ url('/abmelden') }}" title="Abmelden">
                         <i class="fas fa-sign-out fa-2x" aria-hidden="true"></i>
                     </a>
                 </div>
