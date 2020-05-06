@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Str;
 
 class Kernel extends ConsoleKernel
 {
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('media:sync')
             ->everyTenMinutes()
             ->withoutOverlapping()
+            ->pingBefore(Str::finish(config('services.ping.media_sync'), '/') . 'start')
             ->thenPing(config('services.ping.media_sync'));
     }
 
