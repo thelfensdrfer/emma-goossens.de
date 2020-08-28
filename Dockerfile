@@ -15,7 +15,7 @@ RUN docker-php-ext-enable imagick redis
 
 COPY ./docker/php/shell-memory-limit.ini /usr/local/etc/php/conf.d/memory-limit-php.ini
 
-RUN mkdir -p /app
+ADD ./src /app
 
 WORKDIR /app
 

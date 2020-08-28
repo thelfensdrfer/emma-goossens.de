@@ -1,27 +1,38 @@
 version: '3'
 
+networks:
+  backend:
+  frontend:
+
+volumes:
+  preview:
+  storage-framework:
+  storage-logs:
+
 services:
   redis:
     image: redis:5
     restart: unless-stopped
-    user: $UID:$GID
     volumes:
-      - ./docker/redis:/data:Z
+      - ./docker/redis:/data
+    networks:
+      - backend
   app:
     build: .
     restart: unless-stopped
-    user: $UID:$GID
     depends_on:
       - redis
     links:
       - redis
     volumes:
-      - ./src:/app:Z
+      - preview:/app/public/preview:rw
+      - storage-framework:/app/storage/framework:rw
+      - storage-logs:/app/storage/logs:rw
+    networks:
+      - backend
   nginx:
     image: nginx:1.17-alpine
     restart: unless-stopped
-    ports:
-      - 8080:80
     depends_on:
       - app
     links:
@@ -29,10 +40,12 @@ services:
     volumes:
       -  ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
       - ./src:/app:ro
+    networks:
+      - backend
+      - frontend
   composer:
     image: composer:1.10
     restart: "no"
-    user: $UID:$GID
     command: composer install --ignore-platform-reqs --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader --no-dev
     volumes:
-      - ./src:/app:Z
+      - ./src:/app

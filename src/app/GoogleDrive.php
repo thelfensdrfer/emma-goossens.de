@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Exceptions\FileCreationException;
-use FFMpeg\Coordinate\TimeCode;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -15,13 +13,16 @@ use Google_Service_Drive;
 use Google_Service_Drive_DriveFileImageMediaMetadata;
 use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter;
 use Intervention\Image\Constraint;
+use Intervention\Image\Exception\NotReadableException;
 use Intervention\Image\ImageManager;
 use League\Flysystem\Cached\CachedAdapter;
 use FFMpeg\FFMpeg;
-use FFMpeg\Format\Video\WebM;
+use FFMpeg\Coordinate\TimeCode;
+use FFMpeg\Exception\RuntimeException;
 use FFMpeg\Format\Video\X264;
 use GuzzleHttp\Psr7\Response;
 
+use App\Exceptions\FileCreationException;
 use App\Exceptions\UnknownFileException;
 use App\Exceptions\UnknownMimeTypeException;
 
@@ -36,6 +37,11 @@ class GoogleDrive
      * @var ImageManager
      */
     protected $manager;
+
+    /**
+     * @var int
+     */
+    const PAGE_SIZE = 40;
 
     /**
      * GoogleDrive constructor.
@@ -152,11 +158,16 @@ class GoogleDrive
      *
      * @return Collection
      */
-    public function list()
+    public function list($page = 1)
     {
-        return Cache::rememberForever('google-drive-list', function () {
+        /**
+         * @var $files Collection
+         */
+        $files = Cache::rememberForever('google-drive-list', function () {
             return $this->files();
         });
+
+        return $files->forPage($page, self::PAGE_SIZE);
     }
 
     /**
@@ -201,14 +212,14 @@ class GoogleDrive
         Log::debug('Converting image');
 
         if (!$simulate) {
-            $this->manager->make($imageContents)
-                ->resize(1024, null, function (Constraint $constraint) {
-                    $constraint->aspectRatio();
-                })
-                ->save($path, 90, 'jpg');
-
-            if (!file_exists($path)) {
-                throw new FileCreationException(sprintf('Could not create jpg file %s!', $path));
+            try {
+                $this->manager->make($imageContents)
+                    ->resize(1024, null, function (Constraint $constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save($path, 90, 'jpg');
+            } catch (NotReadableException $e) {
+                Log::emergency($e);
             }
         }
     }
@@ -248,6 +259,8 @@ class GoogleDrive
         if (!$simulate) {
             // Save thumbnail
             if (!file_exists($path . '-thumbnail') || $force) {
+                Log::debug('Save thumbnail');
+
                 $video
                     ->frame(TimeCode::fromSeconds(1))
                     ->save($path . '-thumbnail');
@@ -265,11 +278,24 @@ class GoogleDrive
             }
 
             if (!file_exists($path . '.mp4') || $force) {
-                $video->save(new X264('aac', 'libx264'), $path . '.mp4');
+                Log::debug('Save mp4 file');
+
+                try {
+                    $video->save(new X264('aac', 'libx264'), $path . '.mp4');
+                } catch (RuntimeException $e) {
+                    Log::emergency($e);
+                }
             }
 
             if (!file_exists($path . '.webm') || $force) {
-                $video->save(new WebM, $path . '.webm');
+                Log::debug('Save webm file');
+
+                try {
+                    $video
+                        ->save(new WebM, $path . '.webm');
+                } catch (RuntimeException $e) {
+                    Log::emergency($e);
+                }
             }
 
             if (!file_exists($path)) {

@@ -16,7 +16,7 @@
             <div class="mx-auto max-w-screen-lg relative z-10">
                 <h1 class="text-center text-6xl font-bold my-16 md:my-32 lg:my-48">Emma Gooßens</h1>
 
-                <masonry :files='{{ json_encode($files) }}'></masonry>
+                <masonry></masonry>
 
                 <div class="mt-16 text-right">
                     <a href="{{ url('/abmelden') }}" title="Abmelden">
