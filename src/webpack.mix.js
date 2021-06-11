@@ -13,6 +13,9 @@ const tailwindcss = require('tailwindcss')
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .vue({
+        version: 2
+    })
     .postCss('resources/css/main.css', 'public/css', [
         tailwindcss('./resources/js/tailwind.js'),
     ]);

@@ -2,4 +2,4 @@ src/node_modules
 src/public/preview
 src/storage/framework
 src/storage/logs
-
+src/.env

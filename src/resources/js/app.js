@@ -1,9 +1,8 @@
-window.Vue = require('vue')
+window.Vue = require('vue').default
 
 import 'particles.js'
 import particlesConfig from './particles.js'
 
-Vue.component('masonry', require('./components/Masonry').default)
 Vue.component('night-mode', require('./components/NightMode').default)
 
 /**

@@ -9,16 +9,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     </head>
-    <body class="bg-white text-black min-h-full">
-        <div class="flex flex-col-reverse lg:flex-row h-screen">
-            <div class="w-full lg:w-1/2 px-8 mb-16 lg:mb-0 mt-12 lg:mt-0 flex flex-col justify-center text-center flex-grow lg:flex-grow-0">
+    <body class="bg-white text-black min-h-full @night night @endnight">
+        <div id="app" class="flex flex-col-reverse h-screen relative z-10">
+            <night-mode></night-mode>
+
+            <div class="w-full px-8 mb-16 mt-12 flex flex-col justify-center text-center flex-grow">
                 <h1 class="text-4xl lg:text-6xl font-bold">
-                    <span class="hidden lg:inline-block">
-                        Emma<br>Gooßens
-                    </span>
-                    <span class="inline lg:hidden">
-                        Emma Gooßens
-                    </span>
+                    Emma<br>Gooßens
                 </h1>
 
                 <hr class="block w-1/2 mx-auto my-8">
@@ -38,7 +35,7 @@
                 </form>
             </div>
 
-            <div class="w-full lg:w-1/2 px-8 h-full flex-shrink lg:flex-shrink-0 bg-emma"></div>
+            <div class="w-full px-8 h-28 flex-shrink bg-emma"></div>
         </div>
 
         <script src="{{ asset('js/app.js') }}"></script>

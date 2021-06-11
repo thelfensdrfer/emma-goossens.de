@@ -28,7 +28,7 @@
                     let particles = document.createElement('div')
                     particles.setAttribute('id', 'particles-js')
 
-                    body.prepend(particles)
+                    body.append(particles)
 
                     particlesJS('particles-js', particlesConfig)
 

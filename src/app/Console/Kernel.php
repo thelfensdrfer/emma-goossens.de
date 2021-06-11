@@ -25,11 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('media:sync')
-            ->everyTenMinutes()
-            ->withoutOverlapping()
-            ->pingBefore(Str::finish(config('services.ping.media_sync'), '/') . 'start')
-            ->thenPing(config('services.ping.media_sync'));
+        //
     }
 
     /**

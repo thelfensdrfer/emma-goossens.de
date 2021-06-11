@@ -20,11 +20,7 @@ use App\GoogleDrive;
 
 Route::group(['middleware' => 'auth.global'], function () {
     Route::get('/', function () {
-        return view('index');
-    });
-
-    Route::get('/list/{page}', function (int $page) {
-        return (new GoogleDrive())->list($page)->values();
+        return redirect()->to(config('services.redirect_url'));
     });
 
     Route::get('/abmelden', function () {

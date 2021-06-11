@@ -12,7 +12,6 @@ body {
 
     transition: color .5s ease, background-color .5s ease;
 }
-
 body.night {
     @apply text-white;
 
@@ -25,17 +24,13 @@ body.night {
     @apply bg-pink-100;
 
     background: linear-gradient(135deg, rgba(254,215,226,1) 0%, rgba(251,182,206,1) 100%);
-    max-height: 8rem;
-}
-
-@media (min-width: 1024px) {
-    .bg-emma {
-        max-height: none;
-    }
 }
 
 hr {
     @apply border-pink-300;
+}
+.night hr {
+    @apply border-pink-300 opacity-80;
 }
 
 input[type="text"],
@@ -43,6 +38,10 @@ input[type="password"] {
     @apply py-1 px-2 border-b border-gray-700;
 
     transition: border-bottom-color .2s ease;
+}
+.night input[type="text"],
+.night input[type="password"] {
+    @apply text-black;
 }
 
 input[type="text"]::placeholder,
@@ -56,17 +55,27 @@ input[type="password"]:focus {
 
     transition: border-bottom-color .2s ease;
 }
+.night input[type="text"]:focus,
+.night input[type="password"]:focus {
+    @apply bg-white;
+}
 
 button[type="submit"] {
     @apply p-2 border border-black font-bold;
 
     transition: all .2s ease;
 }
+.night button[type="submit"] {
+    @apply border-pink-700;
+}
 
 button[type="submit"]:hover {
     @apply bg-black text-white;
 
     transition: all .2s ease;
+}
+.night button[type="submit"]:hover {
+    @apply bg-pink-700;
 }
 
 #particles-js {
