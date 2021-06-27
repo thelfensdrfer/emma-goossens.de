@@ -38,6 +38,10 @@
             <div class="w-full px-8 h-28 flex-shrink bg-emma"></div>
         </div>
 
+        @night
+            <div id="particles-js"></div>
+        @endnight
+
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

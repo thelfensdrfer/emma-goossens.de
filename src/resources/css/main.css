@@ -8,16 +8,10 @@
 @tailwind utilities;
 
 body {
-    @apply text-lg;
-
-    transition: color .5s ease, background-color .5s ease;
+    @apply text-lg transition-colors duration-500;
 }
 body.night {
-    @apply text-white;
-
-    background: #000005;
-
-    transition: color .5s ease, background-color .5s ease;
+    @apply text-white transition-colors duration-500 bg-black;
 }
 
 .bg-emma {
@@ -30,14 +24,12 @@ hr {
     @apply border-pink-300;
 }
 .night hr {
-    @apply border-pink-300 opacity-80;
+    @apply border-white opacity-80;
 }
 
 input[type="text"],
 input[type="password"] {
-    @apply py-1 px-2 border-b border-gray-700;
-
-    transition: border-bottom-color .2s ease;
+    @apply py-1 px-2 border-b border-gray-700 transition-colors duration-200;
 }
 .night input[type="text"],
 .night input[type="password"] {
@@ -51,9 +43,7 @@ input[type="password"]::placeholder {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    @apply border-black;
-
-    transition: border-bottom-color .2s ease;
+    @apply border-black transition-colors duration-200;
 }
 .night input[type="text"]:focus,
 .night input[type="password"]:focus {
@@ -61,21 +51,17 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-    @apply p-2 border border-black font-bold;
-
-    transition: all .2s ease;
+    @apply p-2 border border-black font-bold transition-colors duration-200;
 }
 .night button[type="submit"] {
-    @apply border-pink-700;
+    @apply border-transparent bg-pink-700;
 }
 
 button[type="submit"]:hover {
-    @apply bg-black text-white;
-
-    transition: all .2s ease;
+    @apply bg-black text-white transition-colors duration-200;
 }
 .night button[type="submit"]:hover {
-    @apply bg-pink-700;
+    @apply bg-pink-900;
 }
 
 #particles-js {

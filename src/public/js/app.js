@@ -1780,7 +1780,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NightMode.vue?vue&type=template&id=05aa8a80&scoped=true& */ "./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true&");
+/* harmony import */ var _NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NightMode.vue?vue&type=template&id=05aa8a80& */ "./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&");
 /* harmony import */ var _NightMode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NightMode.vue?vue&type=script&lang=js& */ "./resources/js/components/NightMode.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -1792,11 +1792,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _NightMode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "05aa8a80",
+  null,
   null
   
 )
@@ -1824,27 +1824,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80& ***!
+  \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NightMode.vue?vue&type=template&id=05aa8a80&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NightMode_vue_vue_type_template_id_05aa8a80___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NightMode.vue?vue&type=template&id=05aa8a80& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&");
 
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NightMode.vue?vue&type=template&id=05aa8a80& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1857,14 +1857,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "fixed top-0 left-0 m-4 mt-8 z-20" }, [
-    _c("a", { staticClass: "cursor-pointer p-4", on: { click: _vm.toggle } }, [
-      _c("i", {
-        staticClass: "fas fa-moon-stars fa-2x",
-        attrs: { "aria-hidden": "true" }
-      })
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "fixed top-0 left-0 m-4 mt-8 z-20 text-black" },
+    [
+      _c(
+        "a",
+        { staticClass: "cursor-pointer p-4", on: { click: _vm.toggle } },
+        [
+          _c("i", {
+            staticClass: "fas fa-moon-stars fa-2x",
+            attrs: { "aria-hidden": "true" }
+          })
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
