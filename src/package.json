@@ -22,7 +22,7 @@
         "gatsby-plugin-image": "^2.8.0",
         "gatsby-plugin-mdx": "^3.8.0",
         "gatsby-plugin-postcss": "^5.8.0",
-        "gatsby-plugin-sharp": "^4.8.0",
+        "gatsby-plugin-sharp": "^4.25.1",
         "gatsby-source-filesystem": "^4.8.0",
         "gatsby-transformer-sharp": "^4.8.0",
         "postcss": "^8.4.6",
