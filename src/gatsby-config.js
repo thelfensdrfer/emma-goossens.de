@@ -29,5 +29,10 @@ module.exports = {
                 domain: `emma-goossens.de`,
                 customDomain: `stats.codigy.de/js/script.js?original=`,
             },
+        }, {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: `https://www.emma-goossens.de`,
+            },
         }]
 }
