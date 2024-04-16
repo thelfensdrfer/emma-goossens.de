@@ -11,8 +11,8 @@ const IndexPage = () => {
 
                 <footer className="text-gray-500 text-right">
                     <p>
-                        <a target="_blank" href="https://thelfensdrfer.de/impressum.html">Impressum</a>&nbsp;|&nbsp;
-                        <a target="_blank" href="https://thelfensdrfer.de/datenschutz.html">Datenschutzerklärung</a></p>
+                        <a target="_blank" href="https://thelfensdrfer.de/impressum">Impressum</a>&nbsp;|&nbsp;
+                        <a target="_blank" href="https://thelfensdrfer.de/datenschutzerklaerung">Datenschutzerklärung</a></p>
                 </footer>
             </div>
         </div>
