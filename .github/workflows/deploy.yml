@@ -45,5 +45,6 @@ jobs:
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
             docker compose pull --quiet
             docker compose stop
+            docker compose rm -f
             docker compose up -d
           command_timeout: '5m'
