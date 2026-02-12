@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
@@ -23,13 +23,12 @@ jobs:
         with:
           context: ./src
           file: ./src/Dockerfile
-          platforms: linux/amd64
           pull: true
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/emma-goossens:main
 
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs:
       - build
 
