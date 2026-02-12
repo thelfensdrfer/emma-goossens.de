@@ -1,4 +1,4 @@
-FROM node:18 AS static
+FROM node:24 AS static
 
 RUN mkdir /app
 
@@ -12,7 +12,7 @@ RUN ./node_modules/.bin/gatsby telemetry --disable
 RUN ls -la
 RUN yarn run build
 
-FROM nginx:1.21-alpine
+FROM nginx:1.28-alpine
 
 COPY --from=static /app/public /usr/share/nginx/html
 

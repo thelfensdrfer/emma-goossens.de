@@ -1,12 +1,9 @@
 {
-    "name": "emma-goo-ens",
+    "name": "emma-goossens",
     "version": "1.0.0",
     "private": true,
     "description": "Emma Gooßens",
-    "author": "Tim Helfensdörfer",
-    "keywords": [
-        "gatsby"
-    ],
+    "author": "Tim Helfensdörfer <tim_helfensdoerfer@pm.me>",
     "scripts": {
         "develop": "gatsby develop",
         "start": "gatsby develop",
