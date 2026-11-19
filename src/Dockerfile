@@ -12,7 +12,7 @@ RUN ./node_modules/.bin/gatsby telemetry --disable
 RUN ls -la
 RUN yarn run build
 
-FROM nginx:1.28-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=static /app/public /usr/share/nginx/html
 
